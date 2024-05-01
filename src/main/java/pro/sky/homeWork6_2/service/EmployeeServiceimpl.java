@@ -1,9 +1,9 @@
 package pro.sky.homeWork6_2.service;
 
 import org.springframework.stereotype.Service;
-import pro.sky.homeWork6_2.Exeption.EmployeeAlreadyAddedException;
-import pro.sky.homeWork6_2.Exeption.EmployeeNotFoundExeption;
-import pro.sky.homeWork6_2.Exeption.EmployeeStorageIsFullException;
+import pro.sky.homeWork6_2.exeption.EmployeeAlreadyAddedException;
+import pro.sky.homeWork6_2.exeption.EmployeeNotFoundExeption;
+import pro.sky.homeWork6_2.exeption.EmployeeStorageIsFullException;
 import pro.sky.homeWork6_2.model.Employee;
 
 import java.util.ArrayList;
@@ -11,10 +11,11 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
-public class EmployeeService {
+public class EmployeeServiceimpl implements EmployeService {
     private final int maxEmployee = 15;
     private final List<Employee> employees = new ArrayList<>();
 
+    @Override
     public Employee addEmployee(String firstName, String lastName) {
         Employee newEmployee = new Employee(firstName, lastName);
         if (employees.contains(newEmployee)) {
@@ -27,6 +28,7 @@ public class EmployeeService {
         return newEmployee;
     }
 
+    @Override
     public Employee deleteEmployee(String firstName, String lastName) {
         Employee newEmployee = new Employee(firstName, lastName);
         if (!employees.contains(newEmployee)) {
@@ -36,6 +38,7 @@ public class EmployeeService {
         return newEmployee;
     }
 
+    @Override
     public Employee findEmployee(String firstName, String lastName) {
         Employee newEmployee = new Employee(firstName, lastName);
         if (!employees.contains(newEmployee)) {

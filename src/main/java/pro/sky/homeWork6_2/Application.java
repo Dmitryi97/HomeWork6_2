@@ -1,4 +1,4 @@
-package pro.sky.homeWork6_2.service;
+package pro.sky.homeWork6_2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
